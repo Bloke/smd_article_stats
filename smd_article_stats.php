@@ -43,7 +43,7 @@ $plugin['type'] = '5';
 // Use an appropriately OR-ed combination of these flags.
 // The four high-order bits 0xf000 are available for this plugin's private use
 if (!defined('PLUGIN_HAS_PREFS')) define('PLUGIN_HAS_PREFS', 0x0001); // This plugin wants to receive "plugin_prefs.{$plugin['name']}" events
-if (!defined('PLUGIN_LIFECYCLE_NOTIFY')) define('PLUGIN_LIFECYCLE_NOTIFY', 0x0000); // This plugin wants to receive "plugin_lifecycle.{$plugin['name']}" events
+if (!defined('PLUGIN_LIFECYCLE_NOTIFY')) define('PLUGIN_LIFECYCLE_NOTIFY', 0x0002); // This plugin wants to receive "plugin_lifecycle.{$plugin['name']}" events
 
 $plugin['flags'] = '0';
 

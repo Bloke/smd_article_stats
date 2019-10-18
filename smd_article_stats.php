@@ -45,7 +45,7 @@ $plugin['type'] = '5';
 if (!defined('PLUGIN_HAS_PREFS')) define('PLUGIN_HAS_PREFS', 0x0001); // This plugin wants to receive "plugin_prefs.{$plugin['name']}" events
 if (!defined('PLUGIN_LIFECYCLE_NOTIFY')) define('PLUGIN_LIFECYCLE_NOTIFY', 0x0002); // This plugin wants to receive "plugin_lifecycle.{$plugin['name']}" events
 
-$plugin['flags'] = '0';
+$plugin['flags'] = '1';
 
 // Plugin 'textpack' is optional. It provides i18n strings to be used in conjunction with gTxt().
 // Syntax:
@@ -55,6 +55,7 @@ $plugin['flags'] = '0';
 // abc_string_name => Localized String
 
 $plugin['textpack'] = <<<EOT
+#@language en, en-gb, en-us
 #@smd_artstat
 smd_artstat => Article statistics
 smd_artstat_char_plural => chars
@@ -75,7 +76,6 @@ smd_artstat_show_word => Show word count
 smd_artstat_singular => Numbers treated as 'singular'
 smd_artstat_word_plural => words
 smd_artstat_word_singular => word
-#@smd_artstat
 #@language fr-fr
 smd_artstat => Statistiques d'article
 smd_artstat_char_plural =>
@@ -130,6 +130,11 @@ if (txpinterface === 'admin') {
 	foreach ($smd_ai_prefs as $key => $prefobj) {
 		register_callback('smd_article_info_pophelp', 'admin_help', $key);
 	}
+} elseif (txpinterface === 'public') {
+    if (class_exists('\Textpattern\Tag\Registry')) {
+        Txp::get('\Textpattern\Tag\Registry')
+            ->register('smd_article_stats');
+    }
 }
 
 /**

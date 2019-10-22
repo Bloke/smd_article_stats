@@ -1,0 +1,33 @@
+h1. smd_article_stats
+
+Put this tag in your article form to display info about the current article. Tags are ignored in the calculation, as far as possible. Note that it only displays the actual number of words entered in the article itself -- if some of the content is derived from other forms, it will not be included. The same goes for character counts: if there is markup or random content in the field you choose to tally, the plugin will make a best guess after it strips tags from the field.
+
+h2. Attributes
+
+* *item* : list of items you want to count. The most common ones are @body@, @excerpt@ or @title@ to get the number of words in the relevant fields. You can supply any article field you like here (e.g. custom field: @item="body, book precis, book author"@). If you don't specify anything then the fields used will be those selected from the prefs.
+* *type* : flavour of information you wish to display. Either @word@ (the default) or @char@.
+* *label* : label text to output before the requested count.
+* *labeltag* : HTML tag without brackets to wrap around the label.
+* *wraptag* : HTML tag without brackets to wrap around the output.
+* *class* : CSS classname to apply to the wraptag (default: @smd_article_stats@).
+
+h2. Admin side
+
+On the Write panel, the number of words/chars in the document are displayed in a stats panel. It is updated in real time as data is entered in the given fields (defined in the plugin preferences). The article ID can also be displayed; hyperlinked to the article itself if it's live or sticky. Set the _Show article ID_ preference accordingly.
+
+If you wish to move the panel to a different location on the Write panel, visit the Advanced prefs. You can then choose one of the following items from the list:
+
+* %Above Sort and display% : (default location) above the 'Sort and display' box.
+* %Below Sort and display% : below the 'Sort and display' box.
+* %Above Title% : above the Title box.
+* %Below Excerpt% : Immediately beneath the Excerpt.
+* %Below Author% : Beneath the author info (which is under the Excerpt). Note this position won't appear for new articles until they are published.
+* %None% : disable the panel.
+
+You may also customize which fields contribute to the count by altering the value in the _Word count fields and DOM selectors_ box. List the fields using the syntax _field_ -> _DOM selector_ and separate each field with a comma. For example, to count words in the body, excerpt and custom 2 fields, set the preference to:
+
+bc. Body -> #body, Excerpt -> #excerpt, custom_2 -> #custom-2
+
+h2. Author / credits
+
+Written by "Stef Dawson":https://stefdawson.com/contact. Thanks to both zem and iblastoff for the original works that this plugin borrows as its foundation.

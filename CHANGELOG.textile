@@ -1,0 +1,48 @@
+h1. Changelog
+
+h2. 0.5.0 - 2019-10-22
+
+* For Textpattern 4.7.x.
+* Registered public tag.
+* Fixed erroneous template comment.
+* Updated and fixed available stats panel locations for 4.7 UI (thanks, phiw13).
+* Corrected and expanded French language Textpack (thanks, phiw13).
+
+h2. 0.4.0 - 2016-03-17
+
+* For Textpattern 4.6.x.
+* Added character count support.
+* Fixed the default DOM anchors for new Write panel layout.
+
+h2. 0.3.0 - 2012-11-21
+
+* For Textpattern 4.5.x.
+* Added visible prefs.
+* Made smd_article_stats tag take on defaults.
+* Display of ID is optional.
+
+h2. 0.2.4 - 2012-04-04
+
+* Expanded the available fields to anything in the article (thanks Teemu).
+
+h2. 0.2.3 - 2012-02-14
+
+* Fixed excerpt_below auto-update mechanism.
+* Added author_below position.
+
+h2. 0.2.2 - 2011-06-06
+
+* Added paragraph wrapper to fieldset for consistency with Txp's layout (thanks philwareham).
+
+h2. 0.2.1 - 2010-02-22
+
+* Prevented error message if step mangled.
+
+h2. 0.2.0 - 2009-11-07
+
+* Improved counting to ignore tags and added real-time admin-side counter (both thanks speeke).
+* Added @force_size@ and @add_stamp@ (both thanks zero).
+
+h2. 0.1.0 - 2009-08-24
+
+* Initial release.

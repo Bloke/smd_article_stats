@@ -1,0 +1,11 @@
+{
+  "name": "smd_article_stats",
+  "description": "Get Textpattern CMS article/excerpt statistics and display them to content editors and visitors",
+  "version": "0.5.0",
+  "type": 5,
+  "author": "Stef Dawson",
+  "author_uri": "https://stefdawson.com/",
+  "order": 5,
+  "flags": 1,
+  "help": {"file" : ["./README.textile"]}
+}

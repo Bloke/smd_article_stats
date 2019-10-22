@@ -17,9 +17,9 @@ $plugin['name'] = 'smd_article_stats';
 // 1 = Plugin help is in raw HTML.  Not recommended.
 # $plugin['allow_html_help'] = 1;
 
-$plugin['version'] = '0.40';
+$plugin['version'] = '0.5.0';
 $plugin['author'] = 'Stef Dawson';
-$plugin['author_uri'] = 'http://stefdawson.com/';
+$plugin['author_uri'] = 'https://stefdawson.com/';
 $plugin['description'] = 'Get article/excerpt statistics and display them to content editors and visitors';
 
 // Plugin load order:
@@ -575,18 +575,8 @@ bc. Body -> #body, Excerpt -> #excerpt, custom_2 -> #custom-2
 
 h2. Author / credits
 
-Written by "Stef Dawson":http://stefdawson.com/contact. Thanks to both zem and iblastoff for the original works that this plugin borrows as its foundation.
+Written by "Stef Dawson":https://stefdawson.com/contact. Thanks to both zem and iblastoff for the original works that this plugin borrows as its foundation.
 
-h2. Changelog
-
-* 17 Mar 2016 | 0.40 | For Txp 4.6.0+ ; Added character count support ; fixed the default DOM anchors for new Write panel layout
-* 21 Nov 2012 | 0.30 | For Txp 4.5.0+ ; added visible prefs ; made smd_article_stats tag take on defaults ; display of ID is optional
-* 04 Apr 2012 | 0.24 | Expanded the available fields to anything in the article (thanks Teemu)
-* 14 Feb 2012 | 0.23 | Fixed excerpt_below auto-update mechanism ; added author_below position
-* 06 Jun 2011 | 0.22 | Added paragraph wrapper to fieldset for consistency with TXP's layout (thanks philwareham)
-* 22 Feb 2010 | 0.21 | Prevented error message if step mangled
-* 07 Nov 2009 | 0.20 | Improved counting to ignore tags and added real-time admin-side counter (both thanks speeke)
-* 24 Aug 2009 | 0.10 | Initial release
 # --- END PLUGIN HELP ---
 -->
 <?php

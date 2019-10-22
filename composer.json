@@ -1,0 +1,16 @@
+{
+  "name": "bloke/smd_article_stats",
+  "description": "Get Textpattern CMS article/excerpt statistics and display them to content editors and visitors",
+  "keywords": ["textpattern", "plugin", "articles", "statistics", "counter", "character", "word"],
+  "homepage": "https://github.com/bloke/smd_article_stats",
+  "license": "GPL-2.0",
+  "type": "textpattern-plugin",
+  "support": {
+    "issues": "https://github.com/bloke/smd_article_stats/issues",
+    "source": "https://github.com/bloke/smd_article_stats"
+  },
+  "require": {
+    "textpattern/lock": ">=4.7.0",
+    "textpattern/installer": "*"
+  }
+}

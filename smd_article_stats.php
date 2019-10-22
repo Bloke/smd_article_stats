@@ -65,11 +65,10 @@ smd_artstat_id => Show article ID
 smd_artstat_legend => Article stats
 smd_artstat_pos => Position of stats panel
 smd_artstat_pos_above_sort_display => Above Sort and display
-smd_artstat_pos_above_textfilter => Above Textfilter
 smd_artstat_pos_above_title => Above Title
 smd_artstat_pos_below_author => Below Author
 smd_artstat_pos_below_excerpt => Below Excerpt
-smd_artstat_pos_below_textfilter => Below Textfilter
+smd_artstat_pos_below_sort_display => Below Sort and display
 smd_artstat_set_by_admin => Set by administrator
 smd_artstat_show_char => Show character count
 smd_artstat_show_word => Show word count
@@ -78,24 +77,23 @@ smd_artstat_word_plural => words
 smd_artstat_word_singular => word
 #@language fr-fr
 smd_artstat => Statistiques d'article
-smd_artstat_char_plural =>
-smd_artstat_char_singular =>
+smd_artstat_char_plural => caractères
+smd_artstat_char_singular => caractère
 smd_artstat_fields => Champs de décompte et sélecteur du DOM
 smd_artstat_id => Afficher l'ID de l'article
 smd_artstat_legend => Statistiques article
 smd_artstat_pos => Emplacement dans la page
-smd_artstat_pos_above_sort_display =>
-smd_artstat_pos_above_textfilter => Au dessus du sélecteur Aide Textile
+smd_artstat_pos_above_sort_display => Au dessus l'article tri et affichage
 smd_artstat_pos_above_title => Au dessus du titre
 smd_artstat_pos_below_author => Sous le nom d'auteur
 smd_artstat_pos_below_excerpt => Sous le résumé
-smd_artstat_pos_below_textfilter => En dessous du sélecteur Aide Textile
-smd_artstat_set_by_admin =>
-smd_artstat_show_char =>
-smd_artstat_show_word =>
+smd_artstat_pos_below_sort_display => Sous l'article tri et affichage
+smd_artstat_set_by_admin => Défini par l'administrateur
+smd_artstat_show_char => Afficher le nombre de caractères
+smd_artstat_show_word => Afficher le compte de mots
 smd_artstat_singular => Nombre pris au singulier
-smd_artstat_word_plural => Mots
-smd_artstat_word_singular => Mot
+smd_artstat_word_plural => mots
+smd_artstat_word_singular => mot
 EOT;
 
 if (!defined('txpinterface'))
@@ -214,13 +212,12 @@ function smd_article_info($event, $step)
 
 	if ($view == 'text') {
 		$screen_locs = array(
-			'none'                  => '',
-			'excerpt_below'         => 'jq|.excerpt|after',
-			'author_below'          => 'jq|.author|after',
-			'sort_display_above'    => 'jq|#txp-write-sort-groups|before',
-			'title_above'           => 'jq|#main_content .title|prepend',
-			'textfilter_help_above' => 'jq|#txp-textfilter-group|before',
-			'textfilter_help_below' => 'jq|#txp-textfilter-group|after',
+			'none'               => '',
+			'excerpt_below'      => 'jq|.excerpt|after',
+			'author_below'       => 'jq|.author|after',
+			'sort_display_above' => 'jq|#txp-write-sort-group|before',
+			'sort_display_below' => 'jq|#txp-write-sort-group|after',
+			'title_above'        => 'jq|#main_content .title|prepend',
 		);
 
 		// Check hidden pref and sanitize
@@ -459,12 +456,11 @@ function smd_article_info_prefs()
 			'position'   => 20,
 			'content'    => array(
 				'none'                  => gTxt('none'),
+				'title_above'           => gTxt('smd_artstat_pos_above_title'),
 				'excerpt_below'         => gTxt('smd_artstat_pos_below_excerpt'),
 				'author_below'          => gTxt('smd_artstat_pos_below_author'),
 				'sort_display_above'    => gTxt('smd_artstat_pos_above_sort_display'),
-				'title_above'           => gTxt('smd_artstat_pos_above_title'),
-				'textfilter_help_above' => gTxt('smd_artstat_pos_above_textfilter'),
-				'textfilter_help_below' => gTxt('smd_artstat_pos_below_textfilter'),
+				'sort_display_below'    => gTxt('smd_artstat_pos_below_sort_display'),
 				),
 			'default'    => 'sort_display_above',
 			'group'      => 'smd_artstat_settings',
@@ -567,9 +563,8 @@ On the Write panel, the number of words/chars in the document are displayed in a
 If you wish to move the panel to a different location on the Write panel, visit the Advanced prefs. You can then choose one of the following items from the list:
 
 * %Above Sort and display% : (default location) above the 'Sort and display' box.
+* %Below Sort and display% : below the 'Sort and display' box.
 * %Above Title% : above the Title box.
-* %Above Textfilter% : above the Textfilter Help twisty.
-* %Below Textfilter% : below the Textfilter Help twisty.
 * %Below Excerpt% : Immediately beneath the Excerpt.
 * %Below Author% : Beneath the author info (which is under the Excerpt). Note this position won't appear for new articles until they are published.
 * %None% : disable the panel.

@@ -17,7 +17,7 @@ $plugin['name'] = 'smd_article_stats';
 // 1 = Plugin help is in raw HTML.  Not recommended.
 # $plugin['allow_html_help'] = 1;
 
-$plugin['version'] = '0.5.0';
+$plugin['version'] = '0.5.1';
 $plugin['author'] = 'Stef Dawson';
 $plugin['author_uri'] = 'https://stefdawson.com/';
 $plugin['description'] = 'Get article/excerpt statistics and display them to content editors and visitors';
@@ -110,7 +110,7 @@ if (!defined('txpinterface'))
  *  -> Shows ID of currently edited article.
  *
  * @author Stef Dawson
- * @link   http://stefdawson.com/
+ * @link   https://stefdawson.com/
  * @todo TinyMCE -- accessing fields inside iframes?
  */
 
@@ -121,8 +121,10 @@ if (txpinterface === 'admin') {
 
     add_privs('smd_artstat_prefs', $all_joined);
     add_privs('prefs.smd_artstat', $all_joined);
+    add_privs('plugin_prefs.smd_article_stats', $all_joined);
     register_callback('smd_artstat_prefs', 'prefs', '', 1);
     register_callback('smd_article_info', 'article');
+    register_callback('smd_artstat_options', 'plugin_prefs.smd_article_stats', null, 1);
     $smd_ai_prefs = smd_article_info_prefs();
 
     foreach ($smd_ai_prefs as $key => $prefobj) {
@@ -371,7 +373,17 @@ EOJS
  */
 function smd_article_info_pophelp($evt, $stp, $ui, $vars)
 {
-    return str_replace(HELP_URL, 'http://stefdawson.com/downloads/support/', $ui);
+    return str_replace(HELP_URL, 'https://stefdawson.com/downloads/support/', $ui);
+}
+
+/**
+ * Jump to the prefs panel fro the Plugins panel Options link.
+ */
+function smd_artstat_options()
+{
+    $link = '?event=prefs#prefs_group_smd_artstat';
+
+    header('Location: ' . $link);
 }
 
 /**

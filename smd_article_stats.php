@@ -125,11 +125,6 @@ if (txpinterface === 'admin') {
     register_callback('smd_artstat_prefs', 'prefs', '', 1);
     register_callback('smd_article_info', 'article');
     register_callback('smd_artstat_options', 'plugin_prefs.smd_article_stats', null, 1);
-    $smd_ai_prefs = smd_article_info_prefs();
-
-    foreach ($smd_ai_prefs as $key => $prefobj) {
-        register_callback('smd_article_info_pophelp', 'admin_help', $key);
-    }
 } elseif (txpinterface === 'public') {
     if (class_exists('\Textpattern\Tag\Registry')) {
         Txp::get('\Textpattern\Tag\Registry')
@@ -360,20 +355,6 @@ EOJS
             echo '<script type="text/javascript">jQuery(function() { jQuery("' . $placer[1] . '").' . $placer[2] . '(\'' . $out1 . '\'); });</script>' . $out2;
         }
     }
-}
-
-/**
- * Get pophelp content from stefdawson.com
- *
- * @param  string $evt  Textpattern event (panel)
- * @param  string $stp  Textpattern step (action)
- * @param  string $ui   Default ui content
- * @param  array  $vars The variables in use for the current article
- * @return string       Help text
- */
-function smd_article_info_pophelp($evt, $stp, $ui, $vars)
-{
-    return str_replace(HELP_URL, 'https://stefdawson.com/downloads/support/', $ui);
 }
 
 /**
